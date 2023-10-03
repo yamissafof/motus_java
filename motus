@@ -1,0 +1,44 @@
+package Projet;
+
+public class Motus {
+
+    public static void main(String[] args) {
+        String Mot, Prop;
+        int L, LBis;
+        String Tab[], TabMot[];
+
+        Mot = Saisie.lire_String("Quel est le mot à trouver : ");
+        L = Mot.length();
+
+        while (L <= 3) {
+            Mot = Saisie.lire_String("Erreur de saisie, recommencer ");
+            L = Mot.length();
+        }
+
+        Tab = new String[L];
+        TabMot = new String[L];
+
+        for (int I = 0; I < L; I++) {
+            Tab[I] = Mot.substring(I, I + 1);
+        }
+
+        Prop = Saisie.lire_String("Saisissez votre proposition ou SOL pour avoir la solution : ");
+        LBis = Prop.length();
+
+        while (!Prop.equals("SOL") && LBis != L) {
+            Prop = Saisie.lire_String("Erreur de saisie, recommencer ");
+            LBis = Prop.length();
+        }
+
+        if (Prop.equals("SOL")) {
+            System.out.println("La solution est : " + Mot);
+        } 
+        else {
+            if (Prop.equals(Mot)) {
+                System.out.println("Bravo, vous avez trouvé le mot qui était : "+Mot);
+            } else {
+                System.out.println("Désolé, vous n'avez pas trouvé le mot qui était : "+Mot);
+            }
+        }
+    }
+}
